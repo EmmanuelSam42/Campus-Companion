@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Campus Companion Trade</title>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+   <div id="auth" class="page active">
+
+      <div class="auth-wrapper">
+
+         <!-- SLIDER CONTAINER -->
+         <div class="auth-card" id="auth-card">
+
+            <div class="auth-card-wrapper">
+               <!-- LOGIN -->
+               <div class="auth-panel login-panel">
+                  <h2>Welcome Back 👋</h2>
+
+                  <input type="text" id="student-id" placeholder="Student ID">
+                  <input type="email" id="email" placeholder="Email">
+                  <input type="password" id="password" placeholder="Password">
+
+                  <button id="login-btn">Login</button>
+
+                  <p class="switch-text">
+                     Don’t have an account?
+                     <span id="go-register">Register</span>
+                  </p>
+               </div>
+
+               <!-- REGISTER -->
+               <div class="auth-panel register-panel">
+                  <h2>Create Account 🚀</h2>
+
+                  <select id="role">
+                     <option value="customer">Customer</option>
+                     <option value="vendor">Vendor/Business</option>
+                  </select>
+
+                  <input type="text" id="full-name" placeholder="Full Name">
+                  <input type="email" id="reg-email" placeholder="Email">
+                  <input type="password" id="reg-password" placeholder="Password">
+                  <input type="password" id="confirm-password" placeholder="Confirm Password">
+                  <input type="text" id="phone" placeholder="Phone Number">
+                  <input type="text" id="hall" placeholder="Hall/Hostel">
+                  <input type="text" id="student-id-reg" placeholder="Student ID">
+
+                  <button id="register-btn">Create Account</button>
+
+                  <p class="switch-text">
+                     Already have an account?
+                     <span id="go-login">Login</span>
+                  </p>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+   <!-- HOME -->
+   <div id="home" class="page">
+      <h1>Your Campus Marketplace 🚀</h1>
+      <p style="color:#94a3b8;">Buy, sell, and access services within your campus easily.</p>
+
+      <div class="category-cards">
+         <div class="card" onclick="redirectTo('products')">🛒 Products</div>
+         <div class="card" onclick="redirectTo('services')">🛠 Services</div>
+         <div class="card" onclick="redirectTo('hostels')">🏠 Hostels</div>
+      </div>
+   </div>
+
+   <!-- PRODUCTS -->
+   <div id="products" class="page">
+      <h2>Marketplace</h2>
+
+      <div class="filter-bar">
+         <select id="category-filter">
+            <option value="all">All</option>
+            <option value="products">Products</option>
+            <option value="services">Services</option>
+         </select>
+
+         <input type="text" id="search" placeholder="Search products...">
+      </div>
+
+      <div class="glass product-list"></div>
+   </div>
+
+   <!-- CART -->
+   <div id="cart" class="page">
+      <h2>Your Cart</h2>
+      <div class="glass cart-items"></div>
+      <button id="checkout-btn">Proceed to Checkout</button>
+   </div>
+
+   <!-- CHECKOUT -->
+   <div id="checkout" class="page">
+      <h2>Checkout</h2>
+
+      <div class="glass">
+         <input type="text" id="delivery-name" placeholder="Full Name">
+         <input type="text" id="delivery-phone" placeholder="Phone">
+         <input type="text" id="delivery-address" placeholder="Address">
+         <button id="place-order-btn">Place Order</button>
+      </div>
+   </div>
+
+   <!-- PROFILE -->
+   <div id="profile" class="page">
+      <h2>Profile Settings</h2>
+
+      <div class="glass">
+         <input type="text" id="edit-full-name" placeholder="Full Name">
+         <input type="text" id="edit-phone" placeholder="Phone">
+         <button id="save-profile-btn">Save Changes</button>
+      </div>
+   </div>
+
+   <!-- FOOTER -->
+   <footer>
+      <img src="Campus_Co_official_logo-Photoroom.png" />
+      <p><strong>Students' Ultimate Helping Hand</strong></p>
+      <p>&copy; 2026 Campus Companion Trade</p>
+   </footer>
+
+   <script src="./js/script.js"></script>
+</body>
+
+</html>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+      const authCard = document.getElementById("auth-card");
+
+      const goRegister = document.getElementById("go-register");
+      const goLogin = document.getElementById("go-login");
+
+      goRegister.addEventListener("click", () => {
+         authCard.classList.add("register-mode");
+      });
+
+      goLogin.addEventListener("click", () => {
+         authCard.classList.remove("register-mode");
+      });
+   });
+</script>
